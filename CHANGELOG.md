@@ -1,3 +1,18 @@
+## 2.5.16
+- add a function for metamask to return all the accounts 
+
+## 2.5.15
+- fix stream_channel
+
+## 2.5.14
+- fix dep with uuid
+
+## 2.5.13
+- fix dep with html
+
+## 2.5.12
+- fix dep with html
+
 ## 2.5.11
 - Add helper for handling amounts with decimals in `EtherAmount` class
 

@@ -64,6 +64,19 @@ extension DartEthereum on Ethereum {
     });
   }
 
+  /// Asks the user for permission and retrieves all accounts that the user has authorized.
+  Future<List<String>> requestAllAccounts() {
+    return rawRequest('eth_requestAccounts').then((res) {
+      var accounts = res as List<dynamic>; // Cast to a List
+      if (accounts.isNotEmpty) {
+        // Map the dynamic list to a strongly-typed List<String>
+        return accounts.cast<String>();
+      } else {
+        throw StateError('No accounts returned from MetaMask.');
+      }
+    });
+  }
+
   /// Creates a stream of raw ethereum events.
   ///
   /// The returned stream is a broadcast stream, meaning that it can be listened
