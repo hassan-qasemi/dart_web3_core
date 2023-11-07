@@ -1,5 +1,5 @@
-import 'package:webthree/src/crypto/formatting.dart';
-import 'package:webthree/webthree.dart';
+import 'package:dart_web3_core/src/crypto/formatting.dart';
+import 'package:dart_web3_core/dart_web3_core.dart';
 
 class BlockInformation {
   final EthereumAddress? from; // Author

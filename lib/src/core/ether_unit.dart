@@ -1,4 +1,4 @@
-part of webthree;
+part of dart_web3_core;
 
 enum EtherUnit {
   /// Wei, the smallest and atomic amount of Ether

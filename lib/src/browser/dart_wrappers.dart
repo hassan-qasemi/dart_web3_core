@@ -1,9 +1,9 @@
 import 'dart:async';
 
 import 'package:js/js_util.dart';
-import 'package:webthree/src/core/exception_utils_js.dart'
-    if (dart.library.io) 'package:webthree/src/core/exception_utils_js.dart'
-    if (dart.library.js) 'package:webthree/src/core/exception_utils_js.dart';
+import 'package:dart_web3_core/src/core/exception_utils_js.dart'
+    if (dart.library.io) 'package:dart_web3_core/src/core/exception_utils_js.dart'
+    if (dart.library.js) 'package:dart_web3_core/src/core/exception_utils_js.dart';
 
 import '../../credentials.dart';
 import '../../json_rpc.dart';
@@ -54,7 +54,13 @@ extension DartEthereum on Ethereum {
   /// Asks the user to select an account and give your application access to it.
   Future<CredentialsWithKnownAddress> requestAccount() {
     return rawRequest('eth_requestAccounts').then((res) {
-      return MetaMaskCredentials((res as List).single as String, this);
+      var accounts = res as List<dynamic>; // Cast to a List
+      if (accounts.isNotEmpty) {
+        return MetaMaskCredentials(
+            accounts.first as String, this); // Use the first account
+      } else {
+        throw StateError('No accounts returned from MetaMask.');
+      }
     });
   }
 

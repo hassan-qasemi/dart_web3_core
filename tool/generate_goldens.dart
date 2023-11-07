@@ -3,7 +3,7 @@ import 'dart:io';
 
 import 'package:build/build.dart';
 import 'package:build_test/build_test.dart';
-import 'package:webthree/src/builder/generator.dart';
+import 'package:dart_web3_core/src/builder/generator.dart';
 
 Future<void> main() async {
   final data = <String, String>{};

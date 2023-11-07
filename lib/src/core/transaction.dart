@@ -1,4 +1,4 @@
-part of 'package:webthree/webthree.dart';
+part of 'package:dart_web3_core/dart_web3_core.dart';
 
 class Transaction {
   /// The address of the sender of this transaction.

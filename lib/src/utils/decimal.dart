@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import 'package:webthree/src/utils/rational.dart';
+import 'package:dart_web3_core/src/utils/rational.dart';
 
 final _i0 = BigInt.zero;
 final _i1 = BigInt.one;

@@ -3,10 +3,10 @@ import 'dart:typed_data';
 
 import 'package:http/http.dart';
 import 'package:test/test.dart';
-import 'package:webthree/crypto.dart';
-import 'package:webthree/src/utils/rlp.dart' as rlp;
-import 'package:webthree/src/utils/typed_data.dart';
-import 'package:webthree/webthree.dart';
+import 'package:dart_web3_core/crypto.dart';
+import 'package:dart_web3_core/src/utils/rlp.dart' as rlp;
+import 'package:dart_web3_core/src/utils/typed_data.dart';
+import 'package:dart_web3_core/dart_web3_core.dart';
 
 const rawJson = '''[
     {

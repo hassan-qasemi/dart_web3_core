@@ -1,8 +1,8 @@
 import 'dart:convert';
 
 import 'package:js/js_util.dart';
-import 'package:webthree/json_rpc.dart';
-import 'package:webthree/src/core/exception.dart';
+import 'package:dart_web3_core/json_rpc.dart';
+import 'package:dart_web3_core/src/core/exception.dart';
 
 class ExceptionUtils {
   ExceptionUtils();

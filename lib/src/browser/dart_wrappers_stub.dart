@@ -1,12 +1,12 @@
 import 'dart:async';
 
 import 'package:universal_html/html.dart';
-import 'package:webthree/json_rpc.dart';
+import 'package:dart_web3_core/json_rpc.dart';
 
 extension GetEthereum on Window {
   /// Loads the ethereum instance provided by the browser.
   ///
-  /// For more information on how to use this object with the webthree package,
+  /// For more information on how to use this object with the dart_web3_core package,
   /// see the methods on [DartEthereum].
   Ethereum? get ethereum => null;
 }

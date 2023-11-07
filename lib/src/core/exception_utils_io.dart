@@ -1,4 +1,4 @@
-import 'package:webthree/src/core/exception.dart';
+import 'package:dart_web3_core/src/core/exception.dart';
 
 class ExceptionUtils {
   ExceptionUtils();

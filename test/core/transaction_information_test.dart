@@ -1,8 +1,8 @@
 import 'dart:convert';
 
 import 'package:test/test.dart';
-import 'package:webthree/crypto.dart';
-import 'package:webthree/webthree.dart';
+import 'package:dart_web3_core/crypto.dart';
+import 'package:dart_web3_core/dart_web3_core.dart';
 
 void main() {
   test('parses full object', () async {

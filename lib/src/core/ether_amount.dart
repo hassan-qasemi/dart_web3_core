@@ -1,4 +1,4 @@
-part of webthree;
+part of dart_web3_core;
 
 /// Utility class to easily convert amounts of Ether into different units of
 /// quantities.

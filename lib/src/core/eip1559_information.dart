@@ -1,4 +1,4 @@
-part of webthree;
+part of dart_web3_core;
 
 class EIP1559Information {
   EIP1559Information({

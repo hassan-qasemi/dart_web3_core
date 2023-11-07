@@ -47,8 +47,8 @@
 - return build.yaml for contract generator
 ## 2.5.1
 - update pubspec
-## 2.5.0 first WebThree version
-- Renaming library to WebThree in order to maintain a community developed fork.
+## 2.5.0 first dart_web3_core version
+- Renaming library to dart_web3_core in order to maintain a community developed fork.
 - Bumping version number to 2.5.0, pull requests are greatly appreciated. No breaking changes were made.
 - the reason for creating this fork from https://github.com/simulous/web3dart 2.3.5 was that web3dart 2.4.1 currently published at https://pub.dev/packages/web3dart/ Github repo https://github.com/xclud/web3dart has factored out contract generator and metamask integration, making a breaking change.
 The following changes were implemented:

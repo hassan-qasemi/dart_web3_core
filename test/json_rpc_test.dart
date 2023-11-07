@@ -3,7 +3,7 @@ import 'dart:convert';
 
 import 'package:http/http.dart';
 import 'package:test/test.dart';
-import 'package:webthree/json_rpc.dart';
+import 'package:dart_web3_core/json_rpc.dart';
 
 final uri = Uri.parse('url');
 

@@ -1,7 +1,7 @@
 import 'package:test/test.dart';
-import 'package:webthree/credentials.dart';
-import 'package:webthree/crypto.dart';
-import 'package:webthree/src/credentials/did.dart';
+import 'package:dart_web3_core/credentials.dart';
+import 'package:dart_web3_core/crypto.dart';
+import 'package:dart_web3_core/src/credentials/did.dart';
 
 void main() {
   group('Generate ethr DID', () {
