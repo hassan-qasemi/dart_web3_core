@@ -1,3 +1,5 @@
+## 2.5.17
+- Make a nice Readme and explain Metamask integration
 ## 2.5.16
 - add a function for metamask to return all the accounts 
 

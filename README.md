@@ -175,3 +175,102 @@ var sub = client.newBlocks().listen((block) {
 // As with any stream, don't forget to cancel the subscription when you're done.
 await sub.cancel();
 ```
+
+
+## Metamask example:
+
+```dart
+ import 'dart:convert';
+ import 'dart:html';
+ import 'dart:typed_data';
+
+ conditionally import dependencies in order to support web and other platform builds from a single codebase
+ import 'package:js/js.dart'
+     if (dart.library.io) 'package:dart_web3_core/lib/src/browser/js-stub.dart'
+     if (dart.library.js) 'package:js/js.dart';
+ import 'package:dart_web3_core/browser.dart'
+     if (dart.library.io) 'package:dart_web3_core/lib/src/browser/dart_wrappers_stub.dart'
+     if (dart.library.js) 'package:dart_web3_core/browser.dart';
+ import 'package:dart_web3_core/dart_web3_core.dart';
+
+ @JS()
+ @anonymous
+ class JSrawRequestParams {
+   external String get chainId;
+
+    Must have an unnamed factory constructor with named arguments.
+   external factory JSrawRequestParams({String chainId});
+ }
+
+ Future<void> main() async {
+   final eth = window.ethereum;
+   if (eth == null) {
+     print('MetaMask is not available');
+     return;
+   }
+
+   final client = Web3Client.custom(eth.asRpcService());
+   final credentials = await eth.requestAccount();
+   // you can also use eth.requestAllAccounts() to have an array of all authorized Metamask accounts.
+   print('Using ${credentials.address}');
+   print('Client is listening: ${await client.isListeningForNetwork()}');
+
+   final message = Uint8List.fromList(utf8.encode('Hello from webthree'));
+   final signature = await credentials.signPersonalMessage(message);
+   print('Signature: ${base64.encode(signature)}');
+
+   await eth.rawRequest('wallet_switchEthereumChain',
+       params: [JSrawRequestParams(chainId: '0x507')]);
+   final String chainIDHex = await eth.rawRequest('eth_chainId') as String;
+   final chainID = int.parse(chainIDHex);
+   print('chainID: $chainID');
+ }
+``` 
+
+### Smart contracts
+
+The library can parse the abi of a smart contract and send data to it. It can also
+listen for events emitted by smart contracts. See [this file](https://github.com/starkleytech/dart_web3_core/blob/development/example/contracts.dart)
+for an example.
+
+### Dart Code Generator
+
+By using [Dart's build system](https://github.com/dart-lang/build/), webthree can
+generate Dart code to easily access smart contracts.
+
+To use this feature, put a contract abi json somewhere into `lib/`.
+The filename has to end with `.abi.json`.
+Then, add a `dev_dependency` on the `build_runner` package and run
+
+```
+dart run build_runner build
+```
+
+You'll now find a `.g.dart` file containing code to interact with the contract.
+
+#### Optional: Ignore naming suggestions for generated files
+
+If importing contract ABIs with function names that don't follow dart's naming conventions, the dart analyzer will (by default) be unhappy about it, and show warnings.
+This can be mitigated by excluding all the generated files from being analyzed.  
+Note that this has the side effect of suppressing serious errors as well, should there exist any. (There shouldn't as these files are automatically generated).
+
+Create a file named `analysis_options.yaml` in the root directory of your project:
+
+```dart
+analyzer:
+  excluding: 
+    - '**/*.g.dart'
+```
+
+See [Customizing static analysis](https://dart.dev/guides/language/analysis-options) for advanced options.
+
+## External code incorporated into dart_web3_core
+
+[Dart Decimals](https://github.com/a14n/dart-decimal) by Alexandre Ardhuin [Apache-2.0 license]
+
+## Feature requests and bugs
+
+Please file feature requests and bugs at the [issue tracker][tracker].
+If you want to contribute to this library, please submit a Pull Request.
+
+[tracker]: https://github.com/starkleytech/dart_web3_core/issues/new
