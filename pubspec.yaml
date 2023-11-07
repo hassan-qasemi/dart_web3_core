@@ -2,7 +2,7 @@ name: dart_web3_core
 description: dart_web3_core - a web3 library for dart for interaction with ethereum
   nodes using HTTP or WebSocket. Supports custom credentials providers like
   WalletConnect and Metamask.
-version: 2.5.17
+version: 2.5.18
 homepage: https://starkleytech.com
 repository: https://github.com/starkleytech/dart_web3_core
 

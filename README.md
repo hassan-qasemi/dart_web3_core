@@ -230,7 +230,7 @@ await sub.cancel();
 ### Smart contracts
 
 The library can parse the abi of a smart contract and send data to it. It can also
-listen for events emitted by smart contracts. See [this file](https://github.com/starkleytech/dart_web3_core/blob/development/example/contracts.dart)
+listen for events emitted by smart contracts. See [this file](https://github.com/starkleytech/dart_web3_core/blob/master/example/contracts.dart)
 for an example.
 
 ### Dart Code Generator
@@ -238,9 +238,8 @@ for an example.
 By using [Dart's build system](https://github.com/dart-lang/build/), webthree can
 generate Dart code to easily access smart contracts.
 
-To use this feature, put a contract abi json somewhere into `lib/`.
+To use this feature, put a contract abi json into `lib/src/generated/abi`.
 The filename has to end with `.abi.json`.
-Then, add a `dev_dependency` on the `build_runner` package and run
 
 ```
 dart run build_runner build

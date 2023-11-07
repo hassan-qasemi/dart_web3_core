@@ -1,3 +1,5 @@
+## 2.5.18
+- add innovator Smart Contracts 
 ## 2.5.17
 - Make a nice Readme and explain Metamask integration
 ## 2.5.16
