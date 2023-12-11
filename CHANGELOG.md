@@ -1,3 +1,5 @@
+## 2.5.19
+- add innovator Pre Sale Smart Contracts 
 ## 2.5.18
 - add innovator Smart Contracts 
 ## 2.5.17
